@@ -1,0 +1,26 @@
+{
+  "name": "mongodb-fitness",
+  "version": "1.0.0",
+  "description": "Personal Fitness Tracking Using a Non-Relational Database",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/b-widg/MongoDb-Fitness.git"
+  },
+  "keywords": [
+    "MongoDb"
+  ],
+  "author": "Brian Widgeon",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/b-widg/MongoDb-Fitness/issues"
+  },
+  "homepage": "https://github.com/b-widg/MongoDb-Fitness#readme",
+  "dependencies": {
+    "dotenv": "^14.3.2",
+    "mongodb": "^4.3.1"
+  }
+}
