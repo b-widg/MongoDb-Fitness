@@ -6,10 +6,22 @@ const workout = {
   date,
   time,
   weight,
-  airSquats,
-  doubleKettlebellSquatThrusters: { kettleBellWeignt, reps },
-  doubleKettlebellStrictPress: { kettleBellWeignt, reps },
-  doubleKettlebellDeadlift: { kettleBellWeignt, reps },
+  airSquats: { totalReps, maxContinuousReps },
+  doubleKettlebellSquatThrusters: {
+    kettleBellWeignt,
+    totalReps,
+    maxContinuousReps,
+  },
+  doubleKettlebellStrictPress: {
+    kettleBellWeignt,
+    totalReps,
+    maxContinuousReps,
+  },
+  doubleKettlebellDeadlift: {
+    kettleBellWeignt,
+    totalReps,
+    maxContinuousReps,
+  },
   pushUps,
 };
 
