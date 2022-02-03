@@ -2,27 +2,49 @@ require('dotenv').config();
 const { MongoClient } = require('mongodb');
 
 const workout = {
-  userName,
-  date,
-  time,
-  weight,
-  airSquats: { totalReps, maxContinuousReps },
+  userNam: '',
+  date: '',
+  time: '',
+  weight: '',
+  airSquats: { totalReps: '', maxContinuousReps: '' },
+  doubleKettlebellSquats: {
+    kettleBellWeignt: '',
+    totalReps: '',
+    maxContinuousReps: '',
+  },
   doubleKettlebellSquatThrusters: {
-    kettleBellWeignt,
-    totalReps,
-    maxContinuousReps,
+    kettleBellWeignt: '',
+    totalReps: '',
+    maxContinuousReps: '',
   },
   doubleKettlebellStrictPress: {
-    kettleBellWeignt,
-    totalReps,
-    maxContinuousReps,
+    kettleBellWeignt: '',
+    totalReps: '',
+    maxContinuousReps: '',
+  },
+  singleKettlebellStrictPress: {
+    leftHand: {
+      kettleBellWeignt: '',
+      totalReps: '',
+      maxContinuousReps: '',
+    },
+    rightHand: {
+      kettleBellWeignt: '',
+      totalReps: '',
+      maxContinuousReps: '',
+    },
+  },
+  russianKettkebellSwing: {
+    kettleBellWeignt: '',
+    totalReps: '',
+    maxContinuousReps: '',
   },
   doubleKettlebellDeadlift: {
-    kettleBellWeignt,
-    totalReps,
-    maxContinuousReps,
+    kettleBellWeignt: '',
+    totalReps: '',
+    maxContinuousReps: '',
   },
-  pushUps,
+  pushUps: { totalReps: '', maxContinuousReps: '' },
 };
 
 const submitWorkout = async () => {
