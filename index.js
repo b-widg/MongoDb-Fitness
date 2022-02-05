@@ -5,47 +5,67 @@ const workout = {
   userNam: '',
   date: '',
   time: '',
-  weight: '',
-  airSquats: { totalReps: '', maxContinuousReps: '' },
+  weight: 0,
+  totalRepsForExercise: 0, // Don't enter manually
+  airSquats: { totalReps: 0, maxContinuousReps: 0 },
   doubleKettlebellSquats: {
-    kettleBellWeignt: '',
-    totalReps: '',
-    maxContinuousReps: '',
+    kettleBellWeignt: 0,
+    totalReps: 0,
+    maxContinuousReps: 0,
   },
   doubleKettlebellSquatThrusters: {
-    kettleBellWeignt: '',
-    totalReps: '',
-    maxContinuousReps: '',
+    kettleBellWeignt: 0,
+    totalReps: 0,
+    maxContinuousReps: 0,
   },
   doubleKettlebellStrictPress: {
-    kettleBellWeignt: '',
-    totalReps: '',
-    maxContinuousReps: '',
+    kettleBellWeignt: 0,
+    totalReps: 0,
+    maxContinuousReps: 0,
   },
   singleKettlebellStrictPress: {
     leftHand: {
-      kettleBellWeignt: '',
-      totalReps: '',
-      maxContinuousReps: '',
+      kettleBellWeignt: 0,
+      totalReps: 0,
+      maxContinuousReps: 0,
     },
     rightHand: {
-      kettleBellWeignt: '',
-      totalReps: '',
-      maxContinuousReps: '',
+      kettleBellWeignt: 0,
+      totalReps: 0,
+      maxContinuousReps: 0,
     },
   },
   russianKettkebellSwing: {
-    kettleBellWeignt: '',
-    totalReps: '',
-    maxContinuousReps: '',
+    kettleBellWeignt: 0,
+    totalReps: 0,
+    maxContinuousReps: 0,
   },
   doubleKettlebellDeadlift: {
-    kettleBellWeignt: '',
-    totalReps: '',
-    maxContinuousReps: '',
+    kettleBellWeignt: 0,
+    totalReps: 0,
+    maxContinuousReps: 0,
   },
-  pushUps: { totalReps: '', maxContinuousReps: '' },
+  pushUps: { totalReps: 0, maxContinuousReps: 0 },
 };
+
+const [, , , , , ...excercises] = Object.entries(workout);
+const types = excercises
+  .map((excercise) => {
+    if (excercise[(1, 1)].totalReps != undefined) {
+      return excercise[(1, 1)].totalReps;
+    } else {
+      return Object.values(excercise[1]).map((subExercise) => {
+        return subExercise.totalReps;
+      });
+    }
+  })
+  .flat();
+
+workout.totalRepsForExercise = types.reduce((reps, type) => {
+  return (reps += type);
+}, 0);
+
+console.log('totalRepsForExercise: ', workout.totalRepsForExercise);
 
 const submitWorkout = async () => {
   const mongoCollection = process.env.MONGO_COLLECTION;
@@ -63,10 +83,10 @@ const submitWorkout = async () => {
       .db(database)
       .collection(mongoCollection)
       .insertOne(workout);
+    await client.close();
   } catch (err) {
     console.error(err);
   } finally {
-    await client.close();
   }
 };
 
