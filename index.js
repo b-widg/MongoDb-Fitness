@@ -6,7 +6,9 @@ const workout = {
   date: '',
   time: '',
   weight: 0,
+  // Squats
   totalRepsForExercise: 0, // Don't enter manually
+  // Squats
   airSquats: { totalReps: 0, maxContinuousReps: 0 },
   doubleKettlebellSquats: {
     kettleBellWeignt: 0,
@@ -18,6 +20,7 @@ const workout = {
     totalReps: 0,
     maxContinuousReps: 0,
   },
+  // Strict Presses
   doubleKettlebellStrictPress: {
     kettleBellWeignt: 0,
     totalReps: 0,
@@ -35,11 +38,32 @@ const workout = {
       maxContinuousReps: 0,
     },
   },
+  // Push Presses
+  doubleKettlebellPushPress: {
+    kettleBellWeignt: 0,
+    totalReps: 0,
+    maxContinuousReps: 0,
+  },
+  singleKettlebellPushPress: {
+    leftHand: {
+      kettleBellWeignt: 0,
+      totalReps: 0,
+      maxContinuousReps: 0,
+    },
+    rightHand: {
+      kettleBellWeignt: 0,
+      totalReps: 0,
+      maxContinuousReps: 0,
+    },
+  },
+
+  // Swings
   russianKettkebellSwing: {
     kettleBellWeignt: 0,
     totalReps: 0,
     maxContinuousReps: 0,
   },
+  // Deadlifts
   doubleKettlebellDeadlift: {
     kettleBellWeignt: 0,
     totalReps: 0,
@@ -60,7 +84,6 @@ const types = excercises
     }
   })
   .flat();
-
 workout.totalRepsForExercise = types.reduce((reps, type) => {
   return (reps += type);
 }, 0);
