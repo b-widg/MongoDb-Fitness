@@ -1,12 +1,15 @@
 require('dotenv').config();
 const { MongoClient } = require('mongodb');
 
+// Recorded kettlenell weight is single kettlebell weight regardless
+// of whether exercise is a single or double kettlebell exercise
+
 const workout = {
   userNam: '',
   date: '',
   time: '',
-  weight: 0,
-  // Squats
+  weight: '',
+
   totalRepsForExercise: 0, // Don't enter manually
   // Squats
   airSquats: { totalReps: 0, maxContinuousReps: 0 },
