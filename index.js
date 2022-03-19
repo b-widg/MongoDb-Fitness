@@ -5,11 +5,11 @@ const { MongoClient } = require('mongodb');
 // of whether exercise is a single or double kettlebell exercise
 
 const workout = {
+  notes: '',
   userNam: '',
   date: '',
   time: '',
   weight: '',
-
   totalRepsForExercise: 0, // Don't enter manually
   // Squats
   airSquats: { totalReps: 0, maxContinuousReps: 0 },
@@ -40,6 +40,7 @@ const workout = {
       totalReps: 0,
       maxContinuousReps: 0,
     },
+    notes: '',
   },
   // Push Presses
   doubleKettlebellPushPress: {
@@ -58,6 +59,7 @@ const workout = {
       totalReps: 0,
       maxContinuousReps: 0,
     },
+    notes: '',
   },
 
   // Swings
@@ -76,14 +78,16 @@ const workout = {
   treadMill: { mins: 0, distanceMiles: 0 },
 };
 
-const [, , , , , ...excercises] = Object.entries(workout);
+const [, , , , , , ...excercises] = Object.entries(workout);
 const types = excercises
   .map((excercise) => {
-    if (excercise[(1, 1)].totalReps != undefined) {
+    // look at fitst level to see if totalReps exists
+    if (excercise[(1, 1)].totalReps) {
       return excercise[(1, 1)].totalReps;
+      // if not drill down one more & return zero if still not found
     } else {
       return Object.values(excercise[1]).map((subExercise) => {
-        return subExercise.totalReps;
+        return subExercise.totalReps ?? 0;
       });
     }
   })
