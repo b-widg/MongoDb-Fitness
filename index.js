@@ -76,6 +76,9 @@ const workout = {
   },
   pushUps: { totalReps: 0, maxContinuousReps: 0 },
   treadMill: { mins: 0, distanceMiles: 0 },
+  // Jump Rope
+  jumpRope: { totalReps: 0, maxContinuousReps: 0 },
+  doubleUnders: { totalReps: 0, maxContinuousReps: 0 }, // someday...maybe...🤣
 };
 
 const [, , , , , , ...excercises] = Object.entries(workout);
